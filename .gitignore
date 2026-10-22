@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+/build/
+/dist/
+*.exe
+*.pkg
+.env
+.env.*
+/data/*
+!/data/.gitkeep

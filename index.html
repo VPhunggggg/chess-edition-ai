@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chess Edition - Dark Fantasy Epic - A legendary chess battle experience">
+    <meta name="theme-color" content="#0f1419">
+    <title>Chess Edition - Dark Fantasy Epic</title>
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font loading with display swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu-container">
+        <!-- Fog layer overlay -->
+        <div class="fog-layer"></div>
+        
+        <!-- Header: Logo & Team ID -->
+        <div class="header-logo">
+            <img src="assets/Decorate/fpt-logo.png" alt="FPT University" loading="lazy" onerror="this.style.display='none'">
+            <div class="fpt-text">
+                <div class="fpt-brand">FPT Education</div>
+                <div class="fpt-university">FPT UNIVERSITY</div>
+            </div>
+        </div>
+        
+        <div class="team-id">CSD203_FA25_NHÓM 5</div>
+        
+        <!-- Game Title -->
+        <div class="game-title">
+            <h1>CHESS EDITION</h1>
+            <div class="subtitle">LEGENDARY BATTLE</div>
+        </div>
+        
+        <!-- Menu Buttons -->
+        <div class="menu-buttons">
+            <button class="menu-btn" data-page="play">
+                <span class="btn-ornament left"></span>
+                <span class="btn-text">PLAY</span>
+                <span class="btn-ornament right"></span>
+            </button>
+            
+            <button class="menu-btn" data-page="howtoplay">
+                <span class="btn-ornament left"></span>
+                <span class="btn-text">HOW TO PLAY</span>
+                <span class="btn-ornament right"></span>
+            </button>
+            
+            <button class="menu-btn" data-page="rankings">
+                <span class="btn-ornament left"></span>
+                <span class="btn-text">RANKINGS</span>
+                <span class="btn-ornament right"></span>
+            </button>
+            
+            <button class="menu-btn" data-page="about">
+                <span class="btn-ornament left"></span>
+                <span class="btn-text">ABOUT US</span>
+                <span class="btn-ornament right"></span>
+            </button>
+            
+            <button class="menu-btn menu-btn-danger" data-action="quit">
+                <span class="btn-ornament left"></span>
+                <span class="btn-text">QUIT</span>
+                <span class="btn-ornament right"></span>
+            </button>
+        </div>
+    </div>
+    
+    <script src="menu.js"></script>
+</body>
+</html>
+

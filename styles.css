@@ -1,0 +1,740 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* ============================================
+   MENU CONTAINER & BACKGROUND
+   ============================================ */
+.menu-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/Decorate/dragon-background.jpg');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: #0f1419;
+    background-attachment: fixed;
+    overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0);
+    scroll-behavior: smooth;
+}
+
+.menu-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(15, 20, 25, 0.3) 0%,
+        rgba(26, 35, 50, 0.2) 40%,
+        rgba(26, 58, 74, 0.15) 70%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animated particles overlay */
+.menu-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(77, 216, 232, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 191, 255, 0.08) 0%, transparent 50%);
+    animation: particleFloat 20s infinite linear;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes particleFloat {
+    0% { 
+        transform: translateY(0) translateX(0) scale(1); 
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-50px) translateX(25px) scale(1.1);
+        opacity: 0.4;
+    }
+    100% { 
+        transform: translateY(-100px) translateX(50px) scale(1); 
+        opacity: 0.3;
+    }
+}
+
+/* Fog overlay */
+.fog-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, 
+        rgba(77, 216, 232, 0.1),
+        transparent
+    );
+    animation: fogMove 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes fogMove {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: translateX(0); 
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: translateX(20px); 
+    }
+}
+
+/* ============================================
+   HEADER: LOGO & TEAM ID
+   ============================================ */
+.header-logo {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.header-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.fpt-text {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.fpt-brand {
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    color: #c0c5ce;
+    letter-spacing: 1px;
+}
+
+.fpt-university {
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+
+.team-id {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-family: 'Orbitron', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: #4dd8e8;
+    text-shadow: 
+        0 0 10px rgba(77, 216, 232, 0.8),
+        0 0 20px rgba(77, 216, 232, 0.5);
+    letter-spacing: 3px;
+    z-index: 100;
+}
+
+/* ============================================
+   GAME TITLE "CHESS EDITION"
+   ============================================ */
+.game-title {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    z-index: 50;
+    text-align: center;
+}
+
+.game-title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(60px, 8vw, 120px);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    line-height: 1.1;
+    
+    /* 3D metallic effect */
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #c0c5ce 30%,
+        #8b95a5 70%,
+        #4a5568 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    /* Glowing outline */
+    filter: drop-shadow(0 0 20px rgba(77, 216, 232, 0.6))
+            drop-shadow(0 0 40px rgba(77, 216, 232, 0.4))
+            drop-shadow(0 5px 15px rgba(0, 0, 0, 0.8));
+    
+    animation: 
+        titleAppear 1.5s ease-out,
+        titlePulse 3s ease-in-out 1.5s infinite;
+}
+
+@keyframes titleAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.5);
+        filter: blur(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(77, 216, 232, 0.6))
+                drop-shadow(0 0 40px rgba(77, 216, 232, 0.4))
+                drop-shadow(0 5px 15px rgba(0, 0, 0, 0.8));
+    }
+    50% {
+        filter: drop-shadow(0 0 30px rgba(77, 216, 232, 0.8))
+                drop-shadow(0 0 60px rgba(77, 216, 232, 0.6))
+                drop-shadow(0 5px 15px rgba(0, 0, 0, 0.8));
+    }
+}
+
+.game-title .subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 2vw, 28px);
+    color: #4dd8e8;
+    letter-spacing: 12px;
+    margin-top: 10px;
+    text-align: center;
+    animation: subtitleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes subtitleGlow {
+    from {
+        text-shadow: 0 0 10px rgba(77, 216, 232, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(77, 216, 232, 1),
+                    0 0 30px rgba(77, 216, 232, 0.5);
+    }
+}
+
+/* ============================================
+   MENU BUTTONS
+   ============================================ */
+.menu-buttons {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+    animation: fadeInMenu 1s ease-out;
+}
+
+@keyframes fadeInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Staggered button appearance */
+.menu-btn:nth-child(1) { 
+    animation: slideInLeft 0.6s ease-out 0.2s both; 
+}
+
+.menu-btn:nth-child(2) { 
+    animation: slideInLeft 0.6s ease-out 0.4s both; 
+}
+
+.menu-btn:nth-child(3) { 
+    animation: slideInLeft 0.6s ease-out 0.6s both; 
+}
+
+.menu-btn:nth-child(4) { 
+    animation: slideInLeft 0.6s ease-out 0.8s both; 
+}
+
+.menu-btn:nth-child(5) { 
+    animation: slideInLeft 0.6s ease-out 1.0s both; 
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu-btn {
+    position: relative;
+    width: 380px;
+    height: 75px;
+    background: linear-gradient(
+        135deg,
+        rgba(45, 55, 72, 0.95) 0%,
+        rgba(26, 32, 44, 0.95) 100%
+    );
+    border: 2px solid rgba(192, 197, 206, 0.3);
+    border-radius: 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    
+    /* Ornate frame effect */
+    clip-path: polygon(
+        15px 0, calc(100% - 15px) 0,
+        100% 15px, 100% calc(100% - 15px),
+        calc(100% - 15px) 100%, 15px 100%,
+        0 calc(100% - 15px), 0 15px
+    );
+    
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Performance optimization */
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ornamental corners */
+.menu-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #cd7f32, #8b6914);
+    border: 1px solid rgba(205, 127, 50, 0.5);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 1;
+}
+
+.menu-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #cd7f32, #8b6914);
+    border: 1px solid rgba(205, 127, 50, 0.5);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+}
+
+/* Ornament decorations */
+.btn-ornament {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 50px;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.btn-ornament::before {
+    content: '⚜';
+    font-size: 24px;
+    color: #cd7f32;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btn-ornament.left {
+    left: 10px;
+}
+
+.btn-ornament.right {
+    right: 10px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+/* Button text */
+.btn-text {
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(77, 216, 232, 0.3);
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+/* Hover effects - Enhanced */
+.menu-btn:hover {
+    transform: translateX(10px) scale(1.02);
+    border-color: rgba(77, 216, 232, 0.8);
+    background: linear-gradient(
+        135deg,
+        rgba(77, 216, 232, 0.2) 0%,
+        rgba(26, 32, 44, 0.95) 100%
+    );
+    box-shadow: 
+        0 8px 30px rgba(77, 216, 232, 0.5),
+        0 0 40px rgba(77, 216, 232, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-btn:hover .btn-text {
+    color: #4dd8e8;
+    text-shadow: 
+        0 0 25px rgba(77, 216, 232, 1),
+        0 0 50px rgba(77, 216, 232, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+    transform: scale(1.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-btn:hover .btn-ornament {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover .btn-ornament.left {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.menu-btn:hover .btn-ornament.right {
+    transform: translateY(-50%) scaleX(-1) scale(1.1);
+}
+
+/* Animated shine effect */
+.menu-btn .shine {
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: left 0.6s;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.menu-btn:hover .shine {
+    left: 200%;
+}
+
+/* Active/Pressed state */
+.menu-btn:active {
+    transform: translateX(10px) scale(0.98);
+    box-shadow: 
+        0 2px 10px rgba(77, 216, 232, 0.3),
+        inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* QUIT button special styling */
+.menu-btn-danger {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.menu-btn-danger:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    background: linear-gradient(
+        135deg,
+        rgba(239, 68, 68, 0.15) 0%,
+        rgba(26, 32, 44, 0.95) 100%
+    );
+    box-shadow: 
+        0 6px 25px rgba(239, 68, 68, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.menu-btn-danger:hover .btn-text {
+    color: #ef4444;
+    text-shadow: 
+        0 0 20px rgba(239, 68, 68, 1),
+        0 0 40px rgba(239, 68, 68, 0.5);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - OPTIMIZED
+   ============================================ */
+@media (max-width: 1400px) {
+    .game-title {
+        right: 10%;
+    }
+    
+    .game-title h1 {
+        font-size: clamp(50px, 7vw, 100px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .menu-buttons {
+        left: 5%;
+        gap: 18px;
+    }
+    
+    .menu-btn {
+        width: 320px;
+        height: 65px;
+    }
+    
+    .btn-text {
+        font-size: 18px;
+        letter-spacing: 2.5px;
+    }
+    
+    .game-title {
+        right: 8%;
+    }
+    
+    .game-title h1 {
+        font-size: clamp(45px, 8vw, 90px);
+        letter-spacing: 6px;
+    }
+    
+    .game-title .subtitle {
+        font-size: clamp(16px, 1.8vw, 24px);
+        letter-spacing: 10px;
+    }
+    
+    .team-id {
+        font-size: 16px;
+        right: 30px;
+        top: 35px;
+    }
+    
+    .header-logo {
+        top: 25px;
+        left: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        background-position: center center;
+    }
+    
+    .menu-buttons {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 15px;
+        width: 90%;
+        max-width: 320px;
+    }
+    
+    .menu-btn {
+        width: 100%;
+        max-width: 300px;
+        height: 60px;
+    }
+    
+    .btn-text {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+    
+    .btn-ornament {
+        width: 35px;
+        height: 45px;
+    }
+    
+    .btn-ornament::before {
+        font-size: 20px;
+    }
+    
+    .game-title {
+        right: 50%;
+        transform: translate(50%, -50%);
+        top: 15%;
+        width: 90%;
+    }
+    
+    .game-title h1 {
+        font-size: clamp(40px, 12vw, 70px);
+        letter-spacing: 4px;
+        line-height: 1.2;
+    }
+    
+    .game-title .subtitle {
+        font-size: clamp(14px, 2.5vw, 20px);
+        letter-spacing: 8px;
+        margin-top: 8px;
+    }
+    
+    .team-id {
+        font-size: 12px;
+        right: 15px;
+        top: 15px;
+        letter-spacing: 2px;
+    }
+    
+    .header-logo {
+        top: 15px;
+        left: 15px;
+        gap: 10px;
+    }
+    
+    .header-logo img {
+        height: 35px;
+    }
+    
+    .fpt-brand {
+        font-size: 10px;
+    }
+    
+    .fpt-university {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+    
+    .fog-layer {
+        height: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-buttons {
+        gap: 12px;
+    }
+    
+    .menu-btn {
+        height: 55px;
+    }
+    
+    .btn-text {
+        font-size: 14px;
+        letter-spacing: 1.5px;
+    }
+    
+    .game-title h1 {
+        font-size: clamp(32px, 14vw, 60px);
+        letter-spacing: 3px;
+    }
+    
+    .game-title .subtitle {
+        font-size: clamp(12px, 3vw, 18px);
+        letter-spacing: 6px;
+    }
+}
+
+/* High DPI / Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .menu-container {
+        background-size: cover;
+    }
+    
+    .header-logo img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .game-title {
+        top: 10%;
+    }
+    
+    .game-title h1 {
+        font-size: clamp(35px, 8vw, 60px);
+    }
+    
+    .menu-buttons {
+        top: 55%;
+        gap: 10px;
+    }
+    
+    .menu-btn {
+        height: 50px;
+    }
+}
+
+/* ============================================
+   FADE OUT ANIMATION
+   ============================================ */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
