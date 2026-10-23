@@ -1,3 +1,5 @@
+![Chess Edition — search & strategy](docs/images/cover.png)
+
 <div align="center">
 
 # Chess Edition

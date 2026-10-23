@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title description">
+  <title id="title">Chess Edition — SEARCH &amp; STRATEGY</title>
+  <desc id="description">Offline chess with a custom Negamax / alpha-beta engine. An original project cover in a coordinated dark and orange portfolio series.</desc>
+  <rect width="1280" height="420" rx="12" fill="#0D1117"/>
+  <rect x=".5" y=".5" width="1279" height="419" rx="12" fill="none" stroke="#30363D"/>
+  <g transform="translate(0,0)">
+    <path d="M48 49h28" stroke="#F0883E" stroke-width="3"/>
+    <g font-family="Consolas, 'Liberation Mono', monospace" font-size="15" letter-spacing="1.4">
+      <text x="92" y="55" fill="#B1BAC4">05 / SEARCH &amp; STRATEGY</text>
+      <text x="1232" y="55" text-anchor="end" fill="#8B949E">NVP. / PROJECT SERIES</text>
+    </g>
+    <path d="M48 83h1184M48 334h1184M850 116v180" stroke="#30363D"/>
+    <g font-family="'Segoe UI', Arial, sans-serif">
+      <text x="45" y="181" fill="#E6EDF3" font-size="76" font-weight="600" letter-spacing="-2.5">Chess Edition</text>
+      <text x="49" y="231" fill="#B1BAC4" font-size="25">Offline chess with a custom</text>
+      <text x="49" y="267" fill="#B1BAC4" font-size="25">Negamax / alpha-beta engine.</text>
+    </g>
+    <g transform="translate(909,105)" stroke-linecap="round">
+    <path d="M90 150c0-34 17-46 31-63l-21 9-25-22 23-20 10-31 29 15 28 6c26 19 40 60 40 106Z" fill="#161D26" stroke="#E6EDF3" stroke-width="2" stroke-linejoin="round"/>
+    <path d="m108 26 10 23-15 7m32 4-9 15m12 13c21 14 28 35 26 61" stroke="#8B949E" stroke-width="2" fill="none"/>
+    <circle cx="119" cy="62" r="3" fill="#F0883E"/>
+    <path d="M87 151h121l10 20H77ZM79 177h137v13H79Z" fill="#161D26" stroke="#E6EDF3" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M233 31v37m-23 29V68h46v29m-59 30V97h26v30m20 0V97h26v30" stroke="#30363D" stroke-width="2" fill="none"/>
+    <g fill="#F0883E"><circle cx="233" cy="31" r="5"/><circle cx="210" cy="97" r="4"/><circle cx="197" cy="127" r="4"/></g>
+    <g fill="#8B949E"><circle cx="256" cy="97" r="4"/><circle cx="223" cy="127" r="4"/><circle cx="243" cy="127" r="4"/><circle cx="269" cy="127" r="4"/></g>
+    <path d="M233 37v31h-23v24m0 9v-4h-13v25" stroke="#F0883E" stroke-width="2" fill="none"/></g>
+    <text x="49" y="376" fill="#8B949E" font-family="Consolas, 'Liberation Mono', monospace" font-size="15" letter-spacing=".6">PYGAME  /  ITERATIVE DEEPENING  /  LOCAL PLAY</text>
+    <path d="M1195 375h35m-10-10 10 10-10 10" stroke="#F0883E" fill="none" stroke-width="2"/>
+  </g>
+</svg>
